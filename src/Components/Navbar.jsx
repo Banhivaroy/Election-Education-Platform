@@ -1,15 +1,14 @@
 
 import { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
 
     const navLinks = [
-        { hindi: 'मुख्य पृष्ठ', english: 'Home' },
-        { hindi: 'उम्मीदवार', english: 'Candidates' },
-        { hindi: 'आपका क्षेत्र', english: 'Your Area' },
-        { hindi: 'परिणाम', english: 'Results' },
-        { hindi: 'मतदाता सूची', english: 'Voter List' },
+        { hindi: 'उम्मीदवार', english: 'Candidates', path: "/candidates" },
+        { hindi: 'आपका क्षेत्र', english: 'Your Area', path: "/area" },
+        { hindi: 'परिणाम', english: 'Results', path: "/results" },
+        { hindi: 'मतदाता सूची', english: 'Voter List', path: "/voterlist" },
     ]
     return (
         <nav className="navbar">
@@ -29,17 +28,17 @@ function Navbar() {
                 <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
                     {navLinks.map((link, i) => (
                         <li key={i} className="nav-item">
-                            <a href="#" className="nav-link">
+                            <Link to={link.path} className="nav-link" >
                                 <span className="nav-hindi">{link.hindi}</span>
                                 <span className="nav-english">{link.english}</span>
-                            </a>
+                            </Link>
                         </li>
                     ))}
                     <li>
-                        <a href="#" className="nav-cta">
+                        <Link to="/vote" className="nav-cta">
                             <span>मतदान करें</span>
                             <span className="cta-sub">Vote Now</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 

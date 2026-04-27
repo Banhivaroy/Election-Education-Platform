@@ -2,7 +2,9 @@ import React from 'react'
 
 function Results() {
     return (
-        <div>Results</div>
+        <>
+            <h1>not out yet</h1>
+        </>
     )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from "./Navbar"
-import Login from "./Login"
 
-function Landing() {
+
+function LandingOn() {
     return (
         <div>
             <Navbar />
@@ -10,4 +10,4 @@ function Landing() {
     )
 }
 
-export default Landing
+export default LandingOn

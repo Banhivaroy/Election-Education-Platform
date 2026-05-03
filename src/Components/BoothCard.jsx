@@ -87,28 +87,28 @@ function BoothCard({ booth, liveQueue, liveVoted, lastUpdated }) {
             {/* Timings grid */}
             <div className="timings">
                 <div className="timing-item">
-                    <div className="timing-icon">🕖</div>
+
                     <div>
                         <div className="timing-title">Booth timings</div>
                         <div className="timing-val">{booth.openTime} – {booth.closeTime}</div>
                     </div>
                 </div>
                 <div className="timing-item">
-                    <div className="timing-icon">👤</div>
+
                     <div>
                         <div className="timing-title">Booth officer</div>
                         <div className="timing-val">{booth.officer}</div>
                     </div>
                 </div>
                 <div className="timing-item">
-                    <div className="timing-icon">📍</div>
+
                     <div>
                         <div className="timing-title">Area</div>
                         <div className="timing-val">{booth.area}</div>
                     </div>
                 </div>
                 <div className="timing-item">
-                    <div className="timing-icon">✅</div>
+
                     <div>
                         <div className="timing-title">Best time to visit</div>
                         <div className="timing-val">{bestTime}</div>

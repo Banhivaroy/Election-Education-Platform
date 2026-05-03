@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#firebase
+.firebase/
+firebase-debug.log
+
+# Claude /AI agents
+.agents/
+.claude/
+skills-lock.json

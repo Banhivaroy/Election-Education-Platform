@@ -7,7 +7,7 @@ const modes = [
         hindi: 'ऑनलाइन',
         english: 'Online',
         tagline: 'Vote from anywhere',
-        description: 'Cast your vote securely from your device. Encrypted, verified, and instant.',
+        description: 'Save your vote locally here',
         path: '/login',
         icon: (
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,8 +64,8 @@ function OfflineorOnline() {
                 <div className="vm-header">
                     <div className="vm-pill">मतदान · Digital India</div>
                     <h1 className="vm-title">
-                        How would you like<br />
-                        <span className="vm-title-accent">to vote today?</span>
+                        Your vote can <br />
+                        <span className="vm-title-accent">change our future</span>
                     </h1>
                     <p className="vm-subtitle">
                         Choose your preferred method. Both are secure, private, and officially recognised.
@@ -121,16 +121,16 @@ function OfflineorOnline() {
                 </div>
 
                 {/* Divider label */}
-                <div className="vm-divider">
+                {/* <div className="vm-divider">
                     <span className="vm-divider-line" />
                     <span className="vm-divider-text">or</span>
                     <span className="vm-divider-line" />
-                </div>
+                </div> */}
 
                 {/* Footer note */}
-                <p className="vm-note">
+                {/* <p className="vm-note">
                     Not sure? <strong>Online voting</strong> takes under 60 seconds. <strong>Offline voting</strong> lets you check your booth queue before leaving.
-                </p>
+                </p> */}
 
                 <div className="vm-footer">
                     निर्वाचन आयोग · Election Commission of India

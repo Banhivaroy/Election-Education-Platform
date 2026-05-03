@@ -67,7 +67,7 @@ function Login() {
     // Store voter info in sessionStorage for use across pages
     sessionStorage.setItem('voter', JSON.stringify(form))
 
-    setTimeout(() => navigate('/mode'), 1800)
+    setTimeout(() => navigate('/landingOn'), 1800)
   }
 
   if (submitted) {

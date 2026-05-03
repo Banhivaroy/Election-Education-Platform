@@ -9,6 +9,7 @@ import YourArea from "./Components/YourArea"
 import Login from "./Components/Login"
 import OfflineorOnline from "./Components/OfflineorOnline"
 import LandingOff from "./Components/LandingOff"
+import PublicRoute from "./Components/PublicRoute"
 
 
 
@@ -19,7 +20,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
         <Route path="/landingOn" element={<LandingOn />} />
         <Route path="/landingOff" element={<LandingOff />} />
         <Route path="/candidates" element={<Candidates />} />
@@ -27,7 +28,7 @@ function App() {
         <Route path="/area" element={<YourArea />} />
         <Route path="/results" element={<Results />} />
         <Route path="/voterlist" element={<VoterList />} />
-        <Route path="/mode" element={<OfflineorOnline />} />
+        <Route path="/" element={<OfflineorOnline />} />
 
       </Routes>
 

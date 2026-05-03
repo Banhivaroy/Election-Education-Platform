@@ -1,272 +1,277 @@
 /* *************************************  Navbar ***************************************************** */
-:root {
-    --saffron: #FF6B00;
-    --saffron-light: #FF8C00;
-    --saffron-dark: #E05A00;
-    --india-green: #138808;
-    --india-white: #F5F0E8;
-    --navy: #1A237E;
-    --navy-light: #283593;
-    --ashoka-blue: #0033A0;
-    --gold: #FFD700;
-    --text-dark: #1a1a1a;
-    --hindi-font: 'Tiro Devanagari Hindi', serif;
-    /* change to your installed font */
-}
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Rajdhani:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
 
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Top tricolor stripe */
-.navbar-top-stripe {
+:root {
+    --navy: #1A3A8C;
+    --saffron: #FF6B1A;
+    --green: #1B5E20;
+    --gold: #C9A84C;
+    --bg: #F8F6F1;
+    --text-dark: #1C1C1E;
+    --text-muted: #5A5A6A;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+.page {
+    min-height: 100vh;
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ── Tricolor bar ── */
+.tricolor-bar {
+    display: flex;
     height: 5px;
-    background: linear-gradient(to right,
-            var(--saffron) 33.3%,
-            var(--india-white) 33.3% 66.6%,
-            var(--india-green) 66.6%);
+    width: 100%;
+    flex-shrink: 0;
 }
 
-.navbar {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1B3A8C 100%);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    font-family: var(--hindi-font);
+.tricolor-bar.bottom {
+    margin-top: auto;
 }
 
-.navbar-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+.tc-saffron {
+    flex: 1;
+    background: #FF9933;
+}
+
+.tc-white {
+    flex: 1;
+    background: #FFFFFF;
+}
+
+.tc-green {
+    flex: 1;
+    background: #138808;
+}
+
+/* ── Header ── */
+.page-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.6rem 2rem;
-    gap: 1rem;
+    padding: 1.5rem 4rem;
+    border-bottom: 1px solid rgba(26, 58, 140, 0.1);
+    background: #fff;
 }
 
-/* Brand */
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-@keyframes pulse-glow {
-
-    0%,
-    100% {
-        filter: drop-shadow(0 0 4px rgba(255, 107, 0, 0.5));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 12px rgba(255, 180, 0, 0.9));
-    }
-}
-
-.brand-text {
+.brand {
     display: flex;
     flex-direction: column;
-    line-height: 1.1;
+    gap: 2px;
 }
 
 .brand-hindi {
-    font-family: var(--hindi-font);
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 2rem;
     color: var(--saffron);
-    letter-spacing: 0.04em;
-    text-shadow: 0 0 12px rgba(255, 107, 0, 0.5);
-}
-
-.brand-sub {
-    font-family: var(--hindi-font);
-    font-size: 0.65rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-/* Nav Links */
-.navbar-links {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    list-style: none;
-}
-
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem 0.85rem;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.2s ease, transform 0.2s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 80%;
-    height: 2px;
-    background: var(--saffron);
-    border-radius: 2px;
-    transition: transform 0.25s ease;
-}
-
-.nav-link:hover::before {
-    transform: translateX(-50%) scaleX(1);
-}
-
-.nav-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-1px);
-}
-
-.nav-hindi {
-    font-family: var(--hindi-font);
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
+    line-height: 1;
     letter-spacing: 0.02em;
 }
 
-.nav-english {
-    font-size: 0.58rem;
-    color: rgba(255, 255, 255, 0.45);
-    letter-spacing: 0.1em;
+.brand-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--navy);
     text-transform: uppercase;
-    margin-top: 1px;
 }
 
-/* CTA Button */
-.nav-cta {
+.ashoka-wheel {
+    width: 52px;
+    height: 52px;
+    opacity: 0.75;
+}
+
+/* ── Main grid ── */
+.grid-area {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    padding: 3rem 4rem;
+    gap: 1.5rem;
+    align-content: center;
+}
+
+/* ── Cards ── */
+.option-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2.2rem 2.2rem 2.2rem 2rem;
+    background: var(--card-bg);
+    border: 1.5px solid rgba(0, 0, 0, 0.07);
+    border-left: 4px solid var(--accent);
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    overflow: hidden;
+    outline: none;
+    min-height: 160px;
+}
+
+.option-card:hover,
+.option-card.hovered {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.10);
+    border-color: var(--accent);
+    border-left-width: 6px;
+}
+
+.option-card.active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+/* ── Icon ── */
+.card-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    transition: background 0.2s ease;
+}
+
+.card-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.option-card.hovered .card-icon {
+    background: var(--accent);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* ── Text block ── */
+.card-text {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 0.5rem 1.2rem;
-    background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
-    border-radius: 6px;
-    text-decoration: none;
-    box-shadow: 0 3px 12px rgba(255, 107, 0, 0.45);
-    transition: all 0.2s ease;
-    border: 1px solid rgba(255, 200, 100, 0.3);
+    gap: 4px;
 }
 
-.nav-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.6);
-    background: linear-gradient(135deg, var(--saffron-light), var(--saffron));
+.card-hindi {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.2;
 }
 
-.nav-cta span:first-child {
-    font-family: var(--hindi-font);
-    font-size: 1rem;
+.card-english {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.65rem;
     font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
 }
 
-.cta-sub {
-    font-size: 0.55rem;
-    color: rgba(255, 255, 255, 0.75);
-    letter-spacing: 0.12em;
+.card-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* ── Arrow ── */
+.card-arrow {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    align-self: center;
+}
+
+.card-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.option-card.hovered .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ── Decorative stripe ── */
+.card-stripe {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    border-radius: 0 0 16px 16px;
+}
+
+.option-card.hovered .card-stripe {
+    transform: scaleX(1);
+}
+
+/* ── Footer ── */
+.page-footer {
+    text-align: center;
+    padding: 0.75rem 2rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
     text-transform: uppercase;
 }
 
-/* Bottom green stripe */
-.navbar-bottom-stripe {
-    height: 3px;
-    background: var(--india-green);
-    opacity: 0.8;
-}
-
-/* Hamburger */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-}
-
-.hamburger span {
-    display: block;
-    width: 26px;
-    height: 2px;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+    .page-header {
+        padding: 1.2rem 1.5rem;
     }
 
-    .navbar-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: var(--navy);
-        padding: 1rem;
-        gap: 0.5rem;
-        border-top: 2px solid var(--saffron);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    .grid-area {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        padding: 1.5rem;
+        gap: 1rem;
     }
 
-    .navbar-links.open {
-        display: flex;
+    .option-card {
+        min-height: 110px;
     }
 
-    .navbar-inner {
-        position: relative;
-    }
-
-    .nav-link,
-    .nav-cta {
-        width: 100%;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 0.75rem;
-        padding: 0.75rem 1rem;
-    }
-
-    .nav-cta {
-        justify-content: center;
+    .brand-hindi {
+        font-size: 1.5rem;
     }
 }
 
@@ -1063,6 +1068,7 @@
     border-radius: 50%;
     background: #0f2441;
     color: #ffffff;
+    /* font-color: #0f2441; */
     font-size: 32px;
     display: flex;
     align-items: center;
@@ -1090,9 +1096,12 @@
     margin-bottom: 8px;
 }
 
+
+
 .success-sub {
     font-size: 14px;
     color: #9ca3af;
+    /* font-color: #0f2441; */
 }
 
 /* ── Responsive ── */
@@ -1123,5 +1132,578 @@
 
     .form-card {
         padding: 2rem 1.5rem;
+    }
+}
+
+/*  ************************** LANDING ONLINE (VOTE ONLINE)          ******************************* */
+/* src/Components/Vote.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── Page ── */
+.vote-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #05111f;
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Background decorations ── */
+.vote-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.vote-bg-circle--1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    left: -200px;
+    background: radial-gradient(circle, rgba(255, 153, 0, 0.12) 0%, transparent 70%);
+    animation: driftA 12s ease-in-out infinite alternate;
+}
+
+.vote-bg-circle--2 {
+    width: 500px;
+    height: 500px;
+    bottom: -150px;
+    right: -150px;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.18) 0%, transparent 70%);
+    animation: driftB 14s ease-in-out infinite alternate;
+}
+
+@keyframes driftA {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(40px, 30px) scale(1.08);
+    }
+}
+
+@keyframes driftB {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(-30px, -40px) scale(1.06);
+    }
+}
+
+.vote-bg-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ── Inner container ── */
+.vote-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* ── Header ── */
+.vote-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vote-emblem {
+    font-size: 48px;
+    margin-bottom: 1rem;
+    display: block;
+    animation: floatY 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.4));
+}
+
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.vote-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.vote-title-hindi {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff9900 30%, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.vote-title-en {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.vote-greeting {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.vote-greeting strong {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+}
+
+/* ── Card ── */
+.vote-card {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    backdrop-filter: blur(12px);
+    animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: border-color 0.3s;
+}
+
+.vote-card--success {
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── States shared ── */
+.vote-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    animation: fadeUp 0.35s ease;
+}
+
+/* ── IDLE state ── */
+.vote-instruction {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.7;
+    max-width: 300px;
+}
+
+/* The main vote button */
+.vote-btn {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(145deg, #1d4ed8, #0f2441);
+    cursor: pointer;
+    box-shadow:
+        0 0 0 8px rgba(29, 78, 216, 0.12),
+        0 0 0 16px rgba(29, 78, 216, 0.06),
+        0 20px 60px rgba(29, 78, 216, 0.4);
+    transition: transform 0.15s, box-shadow 0.2s;
+    animation: pulseRing 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 8px rgba(29, 78, 216, 0.12),
+            0 0 0 16px rgba(29, 78, 216, 0.06),
+            0 20px 60px rgba(29, 78, 216, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 12px rgba(29, 78, 216, 0.18),
+            0 0 0 24px rgba(29, 78, 216, 0.08),
+            0 20px 80px rgba(29, 78, 216, 0.5);
+    }
+}
+
+.vote-btn:hover {
+    transform: scale(1.06);
+    box-shadow:
+        0 0 0 10px rgba(29, 78, 216, 0.2),
+        0 0 0 20px rgba(29, 78, 216, 0.08),
+        0 24px 80px rgba(29, 78, 216, 0.55);
+}
+
+.vote-btn:active {
+    transform: scale(0.97);
+}
+
+.vote-btn-icon {
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.5);
+    animation: spinSlow 8s linear infinite;
+}
+
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vote-btn-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+.vote-btn-sub {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.08em;
+}
+
+/* Ripple */
+.vote-ripple {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleOut 0.7s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes rippleOut {
+    to {
+        transform: translate(-50%, -50%) scale(24);
+        opacity: 0;
+    }
+}
+
+.vote-secure {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.04em;
+}
+
+.vote-lock {
+    margin-right: 4px;
+}
+
+/* ── CONFIRM state ── */
+.confirm-icon {
+    font-size: 36px;
+    animation: zap 0.4s ease;
+}
+
+@keyframes zap {
+    0% {
+        transform: scale(0) rotate(-20deg);
+    }
+
+    70% {
+        transform: scale(1.2) rotate(5deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.confirm-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.confirm-body {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    max-width: 300px;
+}
+
+.confirm-body strong {
+    color: #f87171;
+}
+
+.confirm-meta {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    padding: 4px 14px;
+    letter-spacing: 0.06em;
+}
+
+.confirm-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.confirm-btn {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.15s;
+}
+
+.confirm-btn:hover {
+    opacity: 0.9;
+}
+
+.confirm-btn:active {
+    transform: scale(0.98);
+}
+
+.confirm-btn--yes {
+    background: linear-gradient(135deg, #166534, #15803d);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(21, 128, 61, 0.4);
+}
+
+.confirm-btn--no {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── PROCESSING state ── */
+.processing-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    border-top-color: #1d4ed8;
+    animation: spin 1s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.processing-ring-inner {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-bottom-color: #ff9900;
+    animation: spin 0.7s linear infinite reverse;
+}
+
+.processing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.processing-body {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    max-width: 260px;
+    line-height: 1.6;
+}
+
+.processing-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+}
+
+.pstep {
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+}
+
+.pstep--done {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.08);
+}
+
+.pstep--active {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.08);
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pstep--pending {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── SUCCESS state ── */
+.success-burst {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #15803d, #166534);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 12px rgba(21, 128, 61, 0.12), 0 0 40px rgba(21, 128, 61, 0.4);
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-check {
+    font-size: 36px;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.done-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+}
+
+.success-body {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+.success-id {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 99px;
+    padding: 5px 16px;
+    letter-spacing: 0.06em;
+}
+
+.success-id strong {
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+}
+
+.success-hindi {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Playfair Display', serif;
+}
+
+/* ── Footer ── */
+.vote-footer {
+    margin-top: 2rem;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.18);
+    text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    .vote-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .vote-btn {
+        width: 160px;
+        height: 160px;
     }
 }

@@ -11,6 +11,7 @@ import OfflineorOnline from "./Components/OfflineorOnline"
 import LandingOff from "./Components/LandingOff"
 
 
+
 import { Routes, Route } from "react-router-dom"
 function App() {
 
@@ -20,13 +21,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/landingOn" element={<LandingOn />} />
-        <Route path="/landingOff" element={LandingOff} />
+        <Route path="/landingOff" element={<LandingOff />} />
         <Route path="/candidates" element={<Candidates />} />
         <Route path="/vote" element={<Vote />} />
         <Route path="/area" element={<YourArea />} />
         <Route path="/results" element={<Results />} />
         <Route path="/voterlist" element={<VoterList />} />
         <Route path="/mode" element={<OfflineorOnline />} />
+
       </Routes>
 
     </>
